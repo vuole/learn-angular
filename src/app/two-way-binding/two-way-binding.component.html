@@ -1,0 +1,24 @@
+
+<!-- Bài 13: Template reference variable (#txtUsername) -->
+<!-- Bài 14: Style binding và class binding -->
+<!-- Binding Data -->
+
+<input type="text" placeholder="Nhap UserName..." [(ngModel)]="name" #txtUsername> <br>
+
+Cach cu:
+<p [style.color]="name.length % 2 === 0 ? 'red' : 'black'">Ten cua ban la (Theo binding 2 chieu): {{name}}</p>
+
+<p [style.color]="isHighlight ? 'red' : 'black'" 
+[style.fontSize]="isHighlight ? '40px' : '20px'" 
+>
+Ten cua ban la (Theo template reference variable): {{txtUsername.value | json}}
+</p>
+
+<p [ngStyle]="name.length % 2 === 0 ? evenStyle : oddStyle">Cach moi (ngStyle). Ten cua ban la: {{name}}</p>
+
+
+<div [class]="name.length % 2 === 0 ? 'circle' : 'square'">Cach cu</div>
+
+<div [class.circle]="!isHighlight" [class.square]="isHighlight">Cach cu</div> <br>
+
+<div [ngClass]="currentClass">Cach moi (ngClass)</div>
