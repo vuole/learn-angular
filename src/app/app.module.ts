@@ -12,6 +12,9 @@ import { ChildComponent } from './child/child.component';
 import { CardComponent } from './card/card.component';
 import { LearnPipeComponent } from './learn-pipe/learn-pipe.component';
 import { RoundPipe } from './learn-pipe/round.pipe';
+import { IpComponent } from './ip/ip.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -24,11 +27,14 @@ import { RoundPipe } from './learn-pipe/round.pipe';
     ChildComponent,
     CardComponent,
     LearnPipeComponent,
-    RoundPipe
+    RoundPipe,
+    IpComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
