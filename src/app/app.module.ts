@@ -10,6 +10,7 @@ import { ListPersonComponent } from './list-person/list-person.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { CardComponent } from './card/card.component';
+import { LearnPipeComponent } from './learn-pipe/learn-pipe.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CardComponent } from './card/card.component';
     ListPersonComponent,
     ParentComponent,
     ChildComponent,
-    CardComponent
+    CardComponent,
+    LearnPipeComponent
   ],
   imports: [
     BrowserModule,
