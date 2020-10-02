@@ -13,7 +13,6 @@ export class StructuralComponent implements OnInit {
   en = '';
   vn = '';
   pick = "all";
-  // newArrWords: Word[] = [];
 
   arrWords: Word[] = [
     { id: 1, en: 'action', vn: 'hành động', memorized: true },
@@ -32,6 +31,8 @@ export class StructuralComponent implements OnInit {
   }
 
   addWord() {
+    // this.arrWords[2].vn = "yeu doi"; test kha nang tu dong bo khi thay doi thuoc tinh doi tuong giua 2 mang ma ko can gan lai
+    // console.log("this.arrWords_Copy", this.arrWords_Copy[2].vn);
     this.isShow = true;
     let newWord: Word = new Word();
     if (this.en !== "" && this.en !== undefined && this.vn !== "" && this.vn !== undefined) {
@@ -41,15 +42,11 @@ export class StructuralComponent implements OnInit {
       newWord.vn = this.vn;
       newWord.memorized = false;
       this.arrWords.unshift(newWord); // unshift them vao dau mang, push them vao cuoi mang
-      this.arrWords_Copy.unshift(newWord);
-      this.filterWord();
+      // this.arrWords_Copy.unshift(newWord);
+      // this.filterWord();
     }
-    // this.newArrWords = this.arrWords;
     this.en = '';
     this.vn = '';
-    // this.filterWord();
-    // this.arrWords_Copy = this.arrWords;
-    console.log(this.arrWords, this.en);
   }
 
   deleteWord(id: number) {
@@ -57,25 +54,17 @@ export class StructuralComponent implements OnInit {
     // let index = this.arrWords.indexOf(word_find); or
     let index = this.arrWords.findIndex(word => word.id === id);
     this.arrWords.splice(index, 1);
-    this.arrWords_Copy.splice(index, 1);
-    this.filterWord();
+    // this.arrWords_Copy.splice(index, 1);
+    // this.filterWord();
   }
 
   filterWord() {
-    // console.log("value: ",this.pick);
-    // if (this.pick === 'all') {
-    //   this.arrWords = this.arrWords_Copy;
-    // } else if (this.pick === 'true') {
-    //   this.arrWords = this.arrWords_Copy;
-    //   this.arrWords = this.arrWords.filter(e => e.memorized === true)
-    // } else if (this.pick === 'false') {
-    //   this.arrWords = this.arrWords_Copy;
-    //   this.arrWords =this.arrWords.filter(e => e.memorized === false)
-    // }
-    //  let words_filter = this.arrWords.filter(e => e.memorized === false);
-    //  console.log("value: ",word_find);
     this.arrWords = this.arrWords_Copy;
-    this.arrWords = this.arrWords.filter(e => (this.pick === 'true' ? e.memorized === true : this.pick === 'false' ?  e.memorized === false : true) )
+    this.arrWords = this.arrWords.filter(e => (this.pick === 'true' ? e.memorized === true : this.pick === 'false' ? e.memorized === false : true));
+  }
+
+  filterWord2(memorized) {
+    return (this.pick === 'all' || (this.pick === 'true' && memorized === true) || (this.pick === 'false' && memorized === false));
   }
 
 }
