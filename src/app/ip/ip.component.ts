@@ -15,25 +15,25 @@ export class IpComponent implements OnInit {
 
   ngOnInit() {
     // this.getIp();
-     this.getIp2();
+    this.getIp2();
   }
 
-  getIp(){
+  getIp() {
     this.ipService.getIp().subscribe((res: HttpResponse<any>) => {
       let d: any = res;
       this.ip = d.ip;
       console.log(res);
     },
-    (error) => {
-      console.log("error: ", error);
-    }
+      (error) => {
+        console.log("error: ", error);
+      }
     );
   }
 
-  getIp2(){
+  getIp2() {
     this.ipService.getIp2()
-    .then(ip => this.ip = ip)
-    .catch(err => console.log(err));
+      .then(ip => this.ip = ip)
+      .catch(err => console.log(err));
   }
 
 }

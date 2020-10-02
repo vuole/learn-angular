@@ -15,6 +15,7 @@ import { RoundPipe } from './learn-pipe/round.pipe';
 import { IpComponent } from './ip/ip.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpModule } from '@angular/http';
     CardComponent,
     LearnPipeComponent,
     RoundPipe,
-    IpComponent
+    IpComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
