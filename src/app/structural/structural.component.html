@@ -1,0 +1,27 @@
+<p *ngIf="isShow">
+  structural works!
+</p>
+<button (click)="isShow = !isShow">Toggle</button>
+
+<ul>
+  <li *ngFor="let subject of arrSubjects">
+    <p>{{10+1 + ' 10+1 ' + subject}}</p>
+  </li>
+</ul>
+<!-- Trong {{ }} khong phai chi la 1 chuoi khong. Ma co the la nhung bieu thuc nua -->
+<div *ngIf="isShow">
+  <input type="text" placeholder="English" [(ngModel)]="en">
+  <input type="text" placeholder="Vietnamese" [(ngModel)]="vn">
+</div>
+<button (click)="addWord()">Add Word</button> <br> <br>
+<select name="" id="" [(ngModel)]="pick" (click)="filterWord()">
+  <option value="all">Xem tất cả</option>
+  <option value="true">Xem từ đã nhớ</option>
+  <option value="false">Xem từ chưa nhớ</option>
+</select>
+<div style="background-color: aliceblue;" *ngFor="let word of arrWords">
+  <h4 [ngStyle]="{color: word.memorized ? 'green' : 'red'}">{{word.en}}</h4>
+  <p>{{word.vn}}</p>
+  <button (click)="deleteWord(word.id)">Delete</button>
+  <hr>
+</div>
