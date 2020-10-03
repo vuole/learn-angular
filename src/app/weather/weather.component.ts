@@ -16,7 +16,8 @@ export class WeatherComponent implements OnInit {
   ngOnInit() { }
 
   getWeather() {
-    this.isLoading = true;
+    this.isLoading = true; //ko nam trong code goi api
+    // vi dong code ben duoi goi api nen se co su delay 
     this.weatherService.getTemp(this.txtCityName)
       .subscribe(temp => {
         let d: any = temp;
@@ -34,6 +35,7 @@ export class WeatherComponent implements OnInit {
   }
 
   getMessage() {
+    // khi ma qua trinh goi api van dang bi delay thi dong code ben duoi da duoc xu ly truoc nen moi hien ra dong chu 'Loading...' mot luc. sau do moi hien thi ket qua
     if (this.isLoading) {
       return 'Loading...';
     }
