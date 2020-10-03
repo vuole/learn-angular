@@ -16,6 +16,7 @@ import { IpComponent } from './ip/ip.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { WeatherComponent } from './weather/weather.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { WeatherComponent } from './weather/weather.component';
     LearnPipeComponent,
     RoundPipe,
     IpComponent,
-    WeatherComponent
+    WeatherComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
