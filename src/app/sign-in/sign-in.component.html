@@ -1,5 +1,10 @@
-<form (submit)="onSubmit(formSignIn.value)" #formSignIn="ngForm">
-    <input type="text" placeholder="Email" [(ngModel)]='email' name="email"> <br> <br>
+<form (submit)="onSubmit(formSignIn)" #formSignIn="ngForm">
+    <input type="text" placeholder="Email" [(ngModel)]='email' name="email" required>
+    <!--'?' co nghia neu thuoc tinh khong undefine va khong null -->
+    <p *ngIf="formSignIn.controls.email?.error?.required">
+        Email is required
+    </p>
+    <br> <br>
     <input type="password" placeholder="Password" [(ngModel)]='password' name="password"> <br> <br>
-    <button>Submit</button>
+    <button [disabled]="formSignIn.invalid">Submit</button>
 </form>
