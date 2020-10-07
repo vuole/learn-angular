@@ -16,7 +16,7 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(formSignIn) {
-    console.log(formSignIn);
+    console.log(formSignIn.value);
   }
 
 }
