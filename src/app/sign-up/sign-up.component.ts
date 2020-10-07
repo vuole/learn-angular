@@ -23,6 +23,16 @@ export class SignUpComponent implements OnInit {
       })
     });
   }
+  //Cách cũ không sử dụng FormBuilder
+  // this.formSignUp = new FormGroup({
+  //   email: new FormControl('vuole.it@gmail.com'),
+  //   password: new FormControl(),
+  //   subjects: new FormGroup({
+  //     nodeJS: new FormControl(false),
+  //     angular: new FormControl(true),
+  //     reactJS: new FormControl(false)
+  //   })
+  // });
 
   onSubmit(){
     console.log(this.formSignUp.value)

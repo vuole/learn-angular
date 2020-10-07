@@ -1,0 +1,8 @@
+Đầy đủ lệnh để đẩy một dự án lên git trong lần commit đầu tiên của máy tính:
+
+git init --> (Tạo ra folder ẩn tên là "git" trong thư mục dự án. Sau lệnh này bạn có một Repo ở local và bắt đầu thực thi được các lệnh khác của Git.)
+git add README.md
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/userName/repoName.git --> (Nếu bạn chưa clone một repository hiện có và muốn kết nối repository local của bạn đến máy chủ remote)
+git push --force origin master
