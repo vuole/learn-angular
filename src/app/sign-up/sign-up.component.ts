@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +14,7 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
     this.formSignUp = this.formBuilder.group({
-      email: 'vuole.it@gmail.com',
+      email: ['', [Validators.required, gmailValidator]],
       password: '',
       subjects: this.formBuilder.group({
         nodeJS: false,
@@ -23,7 +23,7 @@ export class SignUpComponent implements OnInit {
       })
     });
   }
-  //Cách cũ không sử dụng FormBuilder
+  //Cách cũ sử dụng FormControl. không sử dụng FormBuilder
   // this.formSignUp = new FormGroup({
   //   email: new FormControl('vuole.it@gmail.com'),
   //   password: new FormControl(),
@@ -37,5 +37,12 @@ export class SignUpComponent implements OnInit {
   onSubmit(){
     console.log(this.formSignUp.value)
   }
-
 }
+
+  //Validator Custom
+  function gmailValidator(formControl: FormControl) {
+    if(formControl.value.includes('@gmail.com')){
+      return null;
+    }
+    return {gmail: true};
+  }
