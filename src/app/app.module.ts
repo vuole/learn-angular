@@ -18,6 +18,14 @@ import { HttpModule } from '@angular/http';
 import { WeatherComponent } from './weather/weather.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: 'contacts', component: ContactsComponent},
+  {path: 'detail', component: ContactDetailComponent}
+]
 
 @NgModule({
   declarations: [
@@ -34,14 +42,17 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     IpComponent,
     WeatherComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    ContactsComponent,
+    ContactDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
