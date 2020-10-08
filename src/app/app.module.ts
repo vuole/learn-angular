@@ -18,17 +18,7 @@ import { HttpModule } from '@angular/http';
 import { WeatherComponent } from './weather/weather.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { ContactDetailComponent } from './contact-detail/contact-detail.component';
-import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-const routes: Routes = [
-  {path: 'contacts', component: ContactsComponent},
-  {path: 'detail', component: ContactDetailComponent},
-  {path: '', redirectTo: '/contacts', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent}
-]
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -45,10 +35,7 @@ const routes: Routes = [
     IpComponent,
     WeatherComponent,
     SignInComponent,
-    SignUpComponent,
-    ContactsComponent,
-    ContactDetailComponent,
-    PageNotFoundComponent
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +43,7 @@ const routes: Routes = [
     HttpClientModule,
     HttpModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
